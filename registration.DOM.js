@@ -2,7 +2,7 @@ var getRegistrationElem = document.querySelector(".textName");
 var addBtnElem = document.querySelector(".submBtn");
 var showBtnElem = document.querySelector(".showBtn");
 var filterElem = document.querySelector(".radioBtn");
-var displayRegElem = document.querySelector(".msg")
+var displayRegElem = document.querySelector(".regNumbers")
 
 //let data = JSON.parse(localStorage.getItem("registration"));
 
@@ -16,6 +16,7 @@ function showBtn(){
     if (regNum) {
         var regis = regNum.value;
         displayRegElem.innerHTML =factoryInstance.filter(regis); 
+   
     }
 
 }
@@ -25,16 +26,26 @@ function addBtnClicked() {
     
     if (getRegistrationElem.value !== "") {
         factoryInstance.registration(getRegistrationElem.value)
-        displayRegElem.innerHTML = factoryInstance.getRegistration();
+        //displayRegElem.innerHTML = factoryInstance.getRegistration();
 
-        // localStorage.setItem('registration', JSON.stringify(factoryInstance.registrationFactory()));
+         
 
+        //factoryInstance.filter();
+        var li = document.createElement('li');
+        li.innerHTML = getRegistrationElem.value;
+        var regNumber = document.querySelector(".regNumbers");
+        regNumber.appendChild(li)
+
+//localStorage.setItem('registration', JSON.stringify(factoryInstance.registrationFactory()));
+       
     }
 
-    //factoryInstance.filter();
-   
+    console.log(factoryInstance.getRegistration());
 
+    
 }
+
+
 addBtnElem.addEventListener("click", addBtnClicked)
 showBtnElem.addEventListener("click", showBtn);
 

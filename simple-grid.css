@@ -254,3 +254,16 @@ p {
   }
   
 }
+/* added my own style
+
+
+*/
+.regNumbers li{
+  border-radius: 5px;
+  width: 100px;
+  background-color: blueviolet;
+  list-style: none;
+  text-align: center;
+  margin: 0 0 10px 0;
+  
+}
