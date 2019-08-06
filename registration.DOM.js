@@ -4,55 +4,54 @@ var showBtnElem = document.querySelector(".showBtn");
 var filterElem = document.querySelector(".radioBtn");
 var displayRegElem = document.querySelector(".regNumbers")
 
-//let data = JSON.parse(localStorage.getItem("registration"));
+
+//let data = JSON.parse(localStorage.getItem("registration"))
 
 var factoryInstance = registrationFactory();
 
-  
-// addBtnElem.innerHTML =factoryInstance.registration();
-function showBtn(){
+function createRegNumbers(regNum) {
+    var li = document.createElement('li');
+    li.innerHTML = regNum
+    var regNumber = document.querySelector(".regNumbers");
+    regNumber.appendChild(li)
+}
+function createRegPlates(foundRegArray) {
+    displayRegElem.innerHTML = "";
+    foundRegArray.forEach(currentRegNumber => {
+        createRegNumbers(currentRegNumber);
+    });
+}
+
+
+// function show() {
+//     var li = document.createElement('li');
+//     li.innerHTML = factoryInstance.filter();
+//     // li.innerHTML = showBtnElem.value;
+//     displayRegElem.appendChild(li)
+// }
+
+function showBtn() {
     var regNum = document.querySelector("input[name ='RegNumber']:checked");
 
-    if (regNum) {
+    if (regNum !== "") {
         var regis = regNum.value;
-        displayRegElem.innerHTML =factoryInstance.filter(regis); 
-   
+        createRegPlates(factoryInstance.filter(regis))
     }
-
 }
-
 function addBtnClicked() {
-    // console.log('chck')
-    
+
     if (getRegistrationElem.value !== "") {
         factoryInstance.registration(getRegistrationElem.value)
-        //displayRegElem.innerHTML = factoryInstance.getRegistration();
 
-         
-
-        //factoryInstance.filter();
-        var li = document.createElement('li');
-        li.innerHTML = getRegistrationElem.value;
-        var regNumber = document.querySelector(".regNumbers");
-        regNumber.appendChild(li)
-
-//localStorage.setItem('registration', JSON.stringify(factoryInstance.registrationFactory()));
-       
+        createRegPlates(factoryInstance.getRegistration());
+      //  localStorage.setItem('registration', JSON.stringify(factoryInstance.eachReg()))
     }
-
-    console.log(factoryInstance.getRegistration());
-
-    
 }
-
-
 addBtnElem.addEventListener("click", addBtnClicked)
 showBtnElem.addEventListener("click", showBtn);
 
+window.addEventListener('DOMContentLoaded', (event) => {
 
+    //  factoryInstance.filter();
 
-// window.addEventListener('DOMContentLoaded', (event) => {
-
-//   //  factoryInstance.filter();
-
-// });
+});

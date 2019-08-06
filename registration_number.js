@@ -1,11 +1,13 @@
 function registrationFactory(regNum) {
     var regNumbers = regNum || [];
-
-
+ 
+    var newReg;
 
     function addRegistration(loc) {
-        if (!regNumbers.includes(loc)) {
-            regNumbers.push(loc);
+        var upCase = loc.toUpperCase();
+          newReg = upCase
+        if (!regNumbers.includes(upCase)) {
+            regNumbers.push(upCase);
         }
 
 
@@ -16,7 +18,11 @@ function registrationFactory(regNum) {
     }
     function filter(reg) {
         var filterTown = [];
-         
+         if(reg === undefined || reg === ""){
+            return regNumbers;
+
+
+         }
         for (var i = 0; i < regNumbers.length; i++) {
             if (regNumbers[i].startsWith(reg)) {
                 filterTown.push(regNumbers[i]);
@@ -26,13 +32,16 @@ function registrationFactory(regNum) {
         return filterTown;
     }
 
-
+function eachReg(){
+    return newReg;
+}
 
     return {
 
         registration: addRegistration,
         getRegistration,
-        filter
+        filter,
+        eachReg
 
     }
 
