@@ -19,24 +19,50 @@
             <div class="registration_number">
 
                 <h6>registration number:</h6>
-                
-                    registration numbers:<br>
-                    <input type="text" value="" class="textName" name="firstname">
-                    <input class="submBtn" type="submit" value="ADD" id="addBtn"><br><br>
-                <br>
-                
-                    <input type="radio" class="radioBtn" name="RegNumber" value="CY"> Bellville
-                    <input type="radio" class="radioBtn" name="RegNumber" value="CA"> Cape Town
-                    <input type="radio" class="radioBtn" name="RegNumber" value="CF"> Paarl
-                    <input type="radio" class="radioBtn" name="RegNumber" value=""> Show All<br><br>
 
-                
-                
+                registration numbers:<br>
+                <input type="text" value="" placeholder="Enter Registration" class="textName" name="firstname">
+                <input class="submBtn" type="submit" value="ADD" id="addBtn"><br><br>
+                <br>
+                <div>
+                    <label class="radio">
+
+                        <input type="radio" class="radioBtn" name="RegNumber" value="CY"> Bellville
+                        <span></span>
+                    </label>
+
+                    <label class="radio">
+
+                        <input type="radio" class="radioBtn" name="RegNumber" value="CA"> Cape Town
+                        <span></span>
+                    </label>
+
+                    <label class="radio" >
+
+                        <input type="radio" class="radioBtn" name="RegNumber" value="CF"> Paarl
+                        <span></span>
+                    </label>
+
+                    <label class="radio" >
+
+                        <input type="radio" class="radioBtn" name="RegNumber" value=""> Show All
+                        <span></span>
+                    </label>
+
+
+                </div>
+
+
+
+                <br><br>
+
+
+
                 <input class="showBtn" type="submit" value="Show" id="showBtn">
                 <div class="row">
                     <div class="msg col-12">
                         <ul class="regNumbers">
-                            
+
                         </ul>
                     </div>
 

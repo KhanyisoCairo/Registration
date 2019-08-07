@@ -261,9 +261,89 @@ p {
 .regNumbers li{
   border-radius: 5px;
   width: 100px;
-  background-color: blueviolet;
+  background-color:yellow;
   list-style: none;
   text-align: center;
   margin: 0 0 10px 0;
   
 }
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+body{
+font-family: "Poppins", sans-serif;
+font-size: 14px;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+background: #fff;
+
+/* }
+.radio{
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: inline-block;
+  vertical-align: middle;
+  color: #333;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+.radio + .radio{
+
+  margin-left: 20px;
+}
+.radio input[type="radio"]{
+
+  display: none;
+}
+.radio span{
+
+  height: 20px;
+  width: 20;
+  border-radius: 50%;
+  border: 3px solid #00eeef;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 7px;
+
+}
+.radio span::after{
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #00eeef;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  border-radius: 50%;
+  transition: 300ms ease-in-out 0;
+  
+}
+.radio input[type="radio"]:checked ~ span::after{
+  transform: translate(-50%,-50%) scale(1);
+}
+.textName input[type="text"]{
+width: 100%;
+border: 2px solid #aaa;
+border-radius: 4px;
+margin: 8px 0;
+outline: none;
+padding: 8px;
+box-sizing: border-box;
+transition: 3s;
+
+}
+.textName input[type="text"]:focus{
+
+  border-color:dodgerblue;
+  box-shadow: 0 0 8px 0 dodgerblue; 
+} */
