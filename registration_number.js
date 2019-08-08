@@ -1,6 +1,6 @@
-function registrationFactory(regNum) {
-    var regNumbers = regNum || [];
-
+function RegistrationFactory() {
+    var regNumbers =  [];
+    console.log(regNumbers)
     var newReg;
     var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
     var error = "";
@@ -9,23 +9,37 @@ function registrationFactory(regNum) {
 
         return error;
     }
+    function GetRegList (getList){
+        var regList = ["CA ","CY ","CF"]
+        var getNum = getList.split(" ");
+        if(getNum.length > 2){
+            return false;
+
+        }
+
+        var regii =  regList[0].trim();
+        return regList.includes(regii);
+    }
+
 
     function addRegistration(loc) {
         error = ""
         var upCase = loc.toUpperCase().trim();
+        console.log(upCase)
+
         var myTest = regex.test(upCase);
+        console.log(myTest)
 
+        
 
-        if (upCase.length > 0 && upCase.length <= 10 && myTest == false) {
-            if (upCase.startsWith("CA") || upCase.startsWith("CY") || upCase.startsWith("CF")) {
+        if (upCase.length > 0 && upCase.length <= 10 && myTest === false) {
+           
+            if (upCase.startsWith("CA ") || upCase.startsWith("CY ") || upCase.startsWith("CF ")) {
                 if (!regNumbers.includes(upCase)) {
                     regNumbers.push(upCase);
 
-                    if (regNumbers[upCase] === undefined) {
-
-                        regNumbers[upCase] = 0;
-                    }
-                } else {
+                } 
+                else {
                     error = "Already Been Added"
                 }
 
@@ -35,6 +49,7 @@ function registrationFactory(regNum) {
         } else {
             error = "Not A Valid Registration"
         }
+         GetRegList(upCase);
     }
 
     function getRegistration() {
@@ -45,8 +60,6 @@ function registrationFactory(regNum) {
         var filterTown = [];
         if (reg === undefined || reg === "") {
             return regNumbers;
-
-
         }
         for (var i = 0; i < regNumbers.length; i++) {
             if (regNumbers[i].startsWith(reg)) {
@@ -61,7 +74,7 @@ function registrationFactory(regNum) {
     function eachReg() {
         return newReg;
     }
-
+ //    console.log(regNumbers)
     return {
 
         registration: addRegistration,

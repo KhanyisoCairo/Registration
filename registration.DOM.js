@@ -7,7 +7,7 @@ var displayRegElem = document.querySelector(".regNumbers")
 
 //let data = JSON.parse(localStorage.getItem("registration"))
 
-var factoryInstance = registrationFactory();
+var factoryInstance = RegistrationFactory();
 
 function createRegNumbers(regNum) {
     var li = document.createElement('li');
