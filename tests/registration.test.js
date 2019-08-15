@@ -1,11 +1,11 @@
 describe('Registration Function', function () {
-    // it('should  Add to list ', function () {
-    //     var getReg = registrationFactory();
-    //     getReg.registration("CA 44865");
+    it('should  Add to list ', function () {
+        var getReg = registrationFactory();
+        getReg.registration("CA 44865");
 
 
-    //     assert.deepEqual(getReg.getRegistration(), [ 'CA 44865' ]);
-    // });
+        assert.deepEqual(getReg.getRegistration(), ['CA 44865']);
+    });
 
     it('should  add different numbers to the list ', function () {
         var getReg = RegistrationFactory();

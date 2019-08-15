@@ -5,7 +5,7 @@ var filterElem = document.querySelector(".radioBtn");
 var displayRegElem = document.querySelector(".regNumbers")
 
 
-//let data = JSON.parse(localStorage.getItem("registration"))
+let data = JSON.parse(localStorage.getItem("registration"))
 
 var factoryInstance = RegistrationFactory();
 
@@ -44,7 +44,7 @@ function addBtnClicked() {
         factoryInstance.registration(getRegistrationElem.value)
 
         createRegPlates(factoryInstance.getRegistration());
-      //  localStorage.setItem('registration', JSON.stringify(factoryInstance.eachReg()))
+        localStorage.setItem('registration', JSON.stringify(factoryInstance.eachReg()))
     }
 }
 addBtnElem.addEventListener("click", addBtnClicked)

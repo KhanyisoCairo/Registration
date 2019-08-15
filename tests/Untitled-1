@@ -1,0 +1,14 @@
+
+
+
+
+function isValidTown(regNum) {
+    var regNumbers = ["CA", "CK", "CY", ];
+    var parts = regNum.split(" ");
+    if (parts.length < 2) {
+        return false;
+    }
+    
+    var regNumber = parts[0].trim();
+    return regNumbers.includes(regNumber)
+}

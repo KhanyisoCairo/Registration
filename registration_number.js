@@ -1,6 +1,6 @@
 function RegistrationFactory() {
-    var regNumbers =  [];
-    console.log(regNumbers)
+    var regNumbers = [];
+
     var newReg;
     var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
     var error = "";
@@ -9,15 +9,15 @@ function RegistrationFactory() {
 
         return error;
     }
-    function GetRegList (getList){
-        var regList = ["CA ","CY ","CF"]
+    function GetRegList(getList) {
+        var regList = ["CA ", "CY ", "CF"]
         var getNum = getList.split(" ");
-        if(getNum.length > 2){
+        if (getNum.length > 2) {
             return false;
 
         }
 
-        var regii =  regList[0].trim();
+        var regii = regList[0].trim();
         return regList.includes(regii);
     }
 
@@ -25,20 +25,16 @@ function RegistrationFactory() {
     function addRegistration(loc) {
         error = ""
         var upCase = loc.toUpperCase().trim();
-        console.log(upCase)
 
         var myTest = regex.test(upCase);
-        console.log(myTest)
-
-        
 
         if (upCase.length > 0 && upCase.length <= 10 && myTest === false) {
-           
+
             if (upCase.startsWith("CA ") || upCase.startsWith("CY ") || upCase.startsWith("CF ")) {
                 if (!regNumbers.includes(upCase)) {
                     regNumbers.push(upCase);
 
-                } 
+                }
                 else {
                     error = "Already Been Added"
                 }
@@ -49,7 +45,7 @@ function RegistrationFactory() {
         } else {
             error = "Not A Valid Registration"
         }
-         GetRegList(upCase);
+        GetRegList(upCase);
     }
 
     function getRegistration() {
@@ -70,11 +66,10 @@ function RegistrationFactory() {
         return filterTown;
     }
 
-
     function eachReg() {
         return newReg;
     }
- //    console.log(regNumbers)
+
     return {
 
         registration: addRegistration,
