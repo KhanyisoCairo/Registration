@@ -3,49 +3,57 @@ function RegistrationFactory() {
 
     var newReg;
     var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
-    var error = "";
+    var errorMessage = "";
 
     function showError() {
-
-        return error;
+        return "Please enter valid registration"
     }
+
+    function checkDuplicates(testNum){
+        return regNumbers.includes(testNum.toUpperCase());
+       
+    }
+
+
+
+
     function GetRegList(getList) {
         var regList = ["CA ", "CY ", "CF"]
         var getNum = getList.split(" ");
         if (getNum.length > 2) {
             return false;
-
         }
-
         var regii = regList[0].trim();
         return regList.includes(regii);
     }
 
+    function validate(plate) {
+        return regex.test(plate);
+    }
 
     function addRegistration(loc) {
-        error = ""
-        var upCase = loc.toUpperCase().trim();
+        var upCase = loc;
+        var upCase2 = loc.toUpperCase().trim();
+        var myTest = regex.test(upCase2);
 
-        var myTest = regex.test(upCase);
+        if (upCase2.length > 0 && upCase2.length <= 10 && myTest === false) {
 
-        if (upCase.length > 0 && upCase.length <= 10 && myTest === false) {
-
-            if (upCase.startsWith("CA ") || upCase.startsWith("CY ") || upCase.startsWith("CF ")) {
-                if (!regNumbers.includes(upCase)) {
-                    regNumbers.push(upCase);
-
+            if (upCase2.startsWith("CA ") || upCase2.startsWith("CY ") || upCase2.startsWith("CF ")) {
+                if (regNumbers.includes(upCase2) === false) {
+                    regNumbers.push(upCase2);
                 }
-                else {
-                    error = "Already Been Added"
+                else if(regNumbers.includes(upCase) === true) {
+                    return ("Already Been Added");
                 }
-
-            } else {
-                error = "Registration Number not from Given Location"
             }
-        } else {
-            error = "Not A Valid Registration"
+            else {
+                return ("Registration Number not from Given Location");
+            }
         }
-        GetRegList(upCase);
+        else {
+            return ("Not A Valid Registration");
+        }
+        GetRegList(upCase2);
     }
 
     function getRegistration() {
@@ -76,7 +84,9 @@ function RegistrationFactory() {
         getRegistration,
         filter,
         eachReg,
-        showError
+        showError,
+        checkExist: checkDuplicates,
+        validate
 
     }
 }

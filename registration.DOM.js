@@ -2,16 +2,27 @@ var getRegistrationElem = document.querySelector(".textName");
 var addBtnElem = document.querySelector(".submBtn");
 var showBtnElem = document.querySelector(".showBtn");
 var filterElem = document.querySelector(".radioBtn");
-var displayRegElem = document.querySelector(".regNumbers")
+var displayRegElem = document.querySelector(".regNumbers");
+var errorElem = document.querySelector(".msg");
+//var radioBtn = document.querySelector(".radioBtn")
+let data;
+if (localStorage.getItem("registration") !== "undefined") {
+    data = JSON.parse(localStorage.getItem("registration"))
+}
 
 
-let data = JSON.parse(localStorage.getItem("registration"))
 
 var factoryInstance = RegistrationFactory();
 
+function clearMsg() {
+    setTimeout(function () {
+        errorElem.innerHTML = "";
+    }, 2000);
+}
+
 function createRegNumbers(regNum) {
     var li = document.createElement('li');
-    li.innerHTML = regNum
+    li.innerHTML = regNum;
     var regNumber = document.querySelector(".regNumbers");
     regNumber.appendChild(li)
 }
@@ -21,6 +32,17 @@ function createRegPlates(foundRegArray) {
         createRegNumbers(currentRegNumber);
     });
 }
+
+
+// function error(){
+// if{
+
+//     errorElem.innerHTML = "Please enter a valid registration"
+// }
+// else if()
+
+
+// };
 
 
 // function show() {
@@ -39,13 +61,34 @@ function showBtn() {
     }
 }
 function addBtnClicked() {
+    // console.log(getRegistrationElem.value);
+    // console.log(errorElem);
+    if (getRegistrationElem.value === "") {
 
-    if (getRegistrationElem.value !== "") {
-        factoryInstance.registration(getRegistrationElem.value)
+        clearMsg();
+        errorElem.innerHTML = "Please enter a valid registration"
+    } else if (factoryInstance.checkExist(getRegistrationElem.value)) {
 
-        createRegPlates(factoryInstance.getRegistration());
-        localStorage.setItem('registration', JSON.stringify(factoryInstance.eachReg()))
+        clearMsg();
+        errorElem.innerHTML = "Already Been Added"
+
+    } else {
+        clearMsg();
+       var result = factoryInstance.registration(getRegistrationElem.value)
+        // console.log();a
+        if(!result){
+            createRegPlates(factoryInstance.getRegistration());
+            localStorage.setItem('registration', JSON.stringify(factoryInstance.getRegistration()))
+            errorElem.innerHTML = "Successfuly Added"
+        } else {
+            errorElem.innerHTML = result;
+        }
+        
+       
     }
+
+
+
 }
 addBtnElem.addEventListener("click", addBtnClicked)
 showBtnElem.addEventListener("click", showBtn);

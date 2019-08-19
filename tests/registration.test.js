@@ -1,6 +1,6 @@
 describe('Registration Function', function () {
     it('should  Add to list ', function () {
-        var getReg = registrationFactory();
+        var getReg = RegistrationFactory();
         getReg.registration("CA 44865");
 
 
@@ -10,10 +10,7 @@ describe('Registration Function', function () {
     it('should  add different numbers to the list ', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CA 321541");
-        // getReg.registration("CF 321541");
         getReg.registration("CF 321541");
-
-        // console.log(getReg.getRegistration())
 
         assert.deepEqual(getReg.getRegistration(), ["CA 321541", "CF 321541"]);
     });
@@ -52,18 +49,28 @@ describe('Registration Function', function () {
 
         assert.deepEqual(getReg.filter("CF"), ["CF 66561", "CF 21564"]);
     });
+    
     it('should not add a registration if you dont enter registration number', function () {
         var getReg = RegistrationFactory();
         getReg.registration("");
 
-        assert.deepEqual(getReg.getRegistration(), []);
+        assert.deepEqual(getReg.showError(), "Please enter valid registration");
 
     });
-    it('should not add a registration if you dont enter re', function () {
+    it('should not add an Existing Registration Number', function () {
         var getReg = RegistrationFactory();
-        getReg.registration("");
+        getReg.registration("CA 98555");
+        getReg.registration("CA 98555");        
 
-        assert.deepEqual(getReg.getRegistration(), []);
+        assert.deepEqual(getReg.getRegistration(),["CA 98555"]);
+
+    });
+    it('should not add  Registration Number if is not a valid registration', function () {
+        var getReg = RegistrationFactory();
+        getReg.registration("c24 96575");
+
+        assert.deepEqual(getReg.showError(), "Please enter valid registration");
+        
 
     });
 
