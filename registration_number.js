@@ -1,6 +1,5 @@
 function RegistrationFactory(arr) {
-    var regNumbers = arr;
-
+    var regNumbers = arr || [];
     var newReg;
     var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
     var errorMessage = "";
@@ -11,7 +10,6 @@ function RegistrationFactory(arr) {
 
     function checkDuplicates(testNum) {
         return regNumbers.includes(testNum.toUpperCase());
-
     }
 
     // function GetRegList(getList) {

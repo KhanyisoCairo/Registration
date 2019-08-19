@@ -93,6 +93,6 @@ showBtnElem.addEventListener("click", showBtn);
 
 window.addEventListener('DOMContentLoaded', (event) => {
 
-    //  factoryInstance.filter();
+      factoryInstance.filter();
 
 });
