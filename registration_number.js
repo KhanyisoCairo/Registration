@@ -1,5 +1,5 @@
-function RegistrationFactory() {
-    var regNumbers = [];
+function RegistrationFactory(arr) {
+    var regNumbers = arr;
 
     var newReg;
     var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
@@ -9,23 +9,26 @@ function RegistrationFactory() {
         return "Please enter valid registration"
     }
 
-    function checkDuplicates(testNum){
+    function checkDuplicates(testNum) {
         return regNumbers.includes(testNum.toUpperCase());
-       
+
     }
 
-
-
-
-    function GetRegList(getList) {
-        var regList = ["CA ", "CY ", "CF"]
-        var getNum = getList.split(" ");
-        if (getNum.length > 2) {
-            return false;
-        }
-        var regii = regList[0].trim();
-        return regList.includes(regii);
+    // function GetRegList(getList) {
+    //     var regList = ["CA ", "CY ", "CF"]
+    //     var getNum = getList.split(" ");
+    //     if (getNum.length > 2) {
+    //         return false;
+    //     }
+    //     var regii = regList[0].trim();
+    //     return regList.includes(regii);
+    // }
+    function initialize() {
+        var initial = [];
+        initial = ["CA 321541", "CF 321541"];
+        return initial;
     }
+
 
     function validate(plate) {
         return regex.test(plate);
@@ -42,7 +45,7 @@ function RegistrationFactory() {
                 if (regNumbers.includes(upCase2) === false) {
                     regNumbers.push(upCase2);
                 }
-                else if(regNumbers.includes(upCase) === true) {
+                else if (regNumbers.includes(upCase) === true) {
                     return ("Already Been Added");
                 }
             }
@@ -53,7 +56,7 @@ function RegistrationFactory() {
         else {
             return ("Not A Valid Registration");
         }
-        GetRegList(upCase2);
+        // GetRegList(upCase2);
     }
 
     function getRegistration() {
@@ -86,7 +89,8 @@ function RegistrationFactory() {
         eachReg,
         showError,
         checkExist: checkDuplicates,
-        validate
+        validate,
+        initialize
 
     }
 }

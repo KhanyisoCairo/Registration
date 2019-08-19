@@ -15,6 +15,11 @@ describe('Registration Function', function () {
         assert.deepEqual(getReg.getRegistration(), ["CA 321541", "CF 321541"]);
     });
 
+    it('should be able to initialize from a list', function () {
+        var getReg = RegistrationFactory(["CA 321541", "CF 321541"]);
+        assert.deepEqual(getReg.initialize(), ["CA 321541", "CF 321541"]);
+    });
+
     it('should not  Add to list if the number already exixst    ', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CJ 55165");

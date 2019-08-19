@@ -4,15 +4,13 @@ var showBtnElem = document.querySelector(".showBtn");
 var filterElem = document.querySelector(".radioBtn");
 var displayRegElem = document.querySelector(".regNumbers");
 var errorElem = document.querySelector(".msg");
-//var radioBtn = document.querySelector(".radioBtn")
-let data;
-if (localStorage.getItem("registration") !== "undefined") {
+
+var data;
+if (localStorage.getItem("registration") !== undefined) {
     data = JSON.parse(localStorage.getItem("registration"))
 }
 
-
-
-var factoryInstance = RegistrationFactory();
+var factoryInstance = RegistrationFactory(data);
 
 function clearMsg() {
     setTimeout(function () {
@@ -74,17 +72,17 @@ function addBtnClicked() {
 
     } else {
         clearMsg();
-       var result = factoryInstance.registration(getRegistrationElem.value)
-        // console.log();a
-        if(!result){
+        var result = factoryInstance.registration(getRegistrationElem.value)
+
+        if (!result) {
             createRegPlates(factoryInstance.getRegistration());
             localStorage.setItem('registration', JSON.stringify(factoryInstance.getRegistration()))
             errorElem.innerHTML = "Successfuly Added"
         } else {
             errorElem.innerHTML = result;
         }
-        
-       
+
+
     }
 
 
