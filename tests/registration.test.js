@@ -6,7 +6,6 @@ describe('Registration Function', function () {
 
         assert.deepEqual(getReg.getRegistration(), ['CA 44865']);
     });
-
     it('should  add different numbers to the list ', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CA 321541");
@@ -14,12 +13,10 @@ describe('Registration Function', function () {
 
         assert.deepEqual(getReg.getRegistration(), ["CA 321541", "CF 321541"]);
     });
-
     it('should be able to initialize from a list', function () {
         var getReg = RegistrationFactory(["CA 321541", "CF 321541"]);
         assert.deepEqual(getReg.initialize(), ["CA 321541", "CF 321541"]);
     });
-
     it('should not  Add to list if the number already exixst    ', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CJ 55165");
@@ -29,7 +26,6 @@ describe('Registration Function', function () {
 
         assert.deepEqual(getReg.getRegistration(), ["CF 66622"]);
     });
-
     it('should  filter the town selected if Cape Town', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CF 45481");
@@ -54,7 +50,6 @@ describe('Registration Function', function () {
 
         assert.deepEqual(getReg.filter("CF"), ["CF 66561", "CF 21564"]);
     });
-    
     it('should not add a registration if you dont enter registration number', function () {
         var getReg = RegistrationFactory();
         getReg.registration("");
@@ -75,9 +70,5 @@ describe('Registration Function', function () {
         getReg.registration("c24 96575");
 
         assert.deepEqual(getReg.showError(), "Please enter valid registration");
-        
-
     });
-
-
 });

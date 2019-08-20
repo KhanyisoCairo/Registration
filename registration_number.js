@@ -12,15 +12,7 @@ function RegistrationFactory(arr) {
         return regNumbers.includes(testNum.toUpperCase());
     }
 
-    // function GetRegList(getList) {
-    //     var regList = ["CA ", "CY ", "CF"]
-    //     var getNum = getList.split(" ");
-    //     if (getNum.length > 2) {
-    //         return false;
-    //     }
-    //     var regii = regList[0].trim();
-    //     return regList.includes(regii);
-    // }
+ 
     function initialize() {
         var initial = [];
         initial = ["CA 321541", "CF 321541"];
@@ -53,14 +45,14 @@ function RegistrationFactory(arr) {
         }
         else {
             return ("Not A Valid Registration");
-        }
-        // GetRegList(upCase2);
+        }  
     }
 
     function getRegistration() {
         return regNumbers
 
     }
+
     function filter(reg) {
         var filterTown = [];
         if (reg === undefined || reg === "") {
@@ -71,7 +63,6 @@ function RegistrationFactory(arr) {
                 filterTown.push(regNumbers[i]);
             }
         }
-
         return filterTown;
     }
 

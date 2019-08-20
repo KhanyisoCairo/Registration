@@ -36,23 +36,7 @@ function createRegPlates(foundRegArray) {
 }
 
 
-// function error(){
-// if{
 
-//     errorElem.innerHTML = "Please enter a valid registration"
-// }
-// else if()
-
-
-// };
-
-
-// function show() {
-//     var li = document.createElement('li');
-//     li.innerHTML = factoryInstance.filter();
-//     // li.innerHTML = showBtnElem.value;
-//     displayRegElem.appendChild(li)
-// }
 
 function showBtn() {
     var regNum = document.querySelector("input[name ='RegNumber']:checked");
@@ -63,8 +47,7 @@ function showBtn() {
     }
 }
 function addBtnClicked() {
-    // console.log(getRegistrationElem.value);
-    // console.log(errorElem);
+   
     if (getRegistrationElem.value === "") {
 
         clearMsg();
@@ -85,12 +68,7 @@ function addBtnClicked() {
         } else {
             errorElem.innerHTML = result;
         }
-
-
     }
-
-
-
 }
 addBtnElem.addEventListener("click", addBtnClicked)
 showBtnElem.addEventListener("click", showBtn);
