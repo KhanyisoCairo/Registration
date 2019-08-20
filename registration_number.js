@@ -1,5 +1,5 @@
 function RegistrationFactory(arr) {
-    var regNumbers = arr || [];
+    var regNumbers = arr || [];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
     var newReg;
     var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
     var errorMessage = "";

@@ -12,6 +12,10 @@ if (localStorage.getItem("registration") !== undefined) {
 
 var factoryInstance = RegistrationFactory(data);
 
+window.onload = function () {
+    createRegPlates(factoryInstance.getRegistration());
+};
+
 function clearMsg() {
     setTimeout(function () {
         errorElem.innerHTML = "";
