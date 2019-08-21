@@ -264,7 +264,9 @@ p {
   background-color:yellow;
   list-style: none;
   text-align: center;
-  margin: 0 0 10px 0;
+  margin: 0px 0px 10px 10px;
+  float : right;
+  border: solid;
   
 }
 *{

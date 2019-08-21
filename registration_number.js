@@ -1,7 +1,7 @@
 function RegistrationFactory(arr) {
     var regNumbers = arr || [];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
     var newReg;
-    var regex = /[!@#$%^&*();,.?"^$:^+=${'}`_;''"\[.*?\]|<>]/i
+    var regex = /[A-Z]{2}\s[0-9]/i;
     var errorMessage = "";
 
     function showError() {
@@ -29,7 +29,7 @@ function RegistrationFactory(arr) {
         var upCase2 = loc.toUpperCase().trim();
         var myTest = regex.test(upCase2);
 
-        if (upCase2.length > 0 && upCase2.length <= 10 && myTest === false) {
+        if (upCase2.length > 0 && upCase2.length <= 10 && myTest === true) {
 
             if (upCase2.startsWith("CA ") || upCase2.startsWith("CY ") || upCase2.startsWith("CF ")) {
                 if (regNumbers.includes(upCase2) === false) {
