@@ -1,12 +1,12 @@
 describe('Registration Function', function () {
-    it('should  Add to list ', function () {
+    it('should  Add to list when you enter registration number ', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CA 44865");
 
 
         assert.deepEqual(getReg.getRegistration(), ['CA 44865']);
     });
-    it('should  add different numbers to the list ', function () {
+    it('should  add different numbers to the list when you enter different registration numbers', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CA 321541");
         getReg.registration("CF 321541");
@@ -17,7 +17,7 @@ describe('Registration Function', function () {
         var getReg = RegistrationFactory(["CA 321541", "CF 321541"]);
         assert.deepEqual(getReg.initialize(), ["CA 321541", "CF 321541"]);
     });
-    it('should not  Add to list if the number already exixst    ', function () {
+    it('should not Add to list if the registration  number already exixst    ', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CJ 55165");
         getReg.registration("CF 66622");
@@ -26,7 +26,7 @@ describe('Registration Function', function () {
 
         assert.deepEqual(getReg.getRegistration(), ["CF 66622"]);
     });
-    it('should  filter the town selected if Cape Town', function () {
+    it('should  filter the town that is being  selected if Cape Town', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CF 45481");
         getReg.registration("CA 54824");
@@ -34,7 +34,7 @@ describe('Registration Function', function () {
 
         assert.deepEqual(getReg.filter("CA"), ["CA 54824", "CA 54865"]);
     });
-    it('should  filter the town selected if Bellville  ', function () {
+    it('should  filter the town that is being  selected if Bellville  ', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CJ 566565");
         getReg.registration("CY 54531");
@@ -42,7 +42,7 @@ describe('Registration Function', function () {
 
         assert.deepEqual(getReg.filter("CY"), ["CY 54531", "CY 51553"]);
     });
-    it('should  filter the town if selected Paarl ', function () {
+    it('should  filter the town that is being  if selected Paarl ', function () {
         var getReg = RegistrationFactory();
         getReg.registration("CK 54565");
         getReg.registration("CF 66561");
