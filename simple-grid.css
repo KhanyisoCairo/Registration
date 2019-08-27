@@ -284,6 +284,13 @@ justify-content: center;
 height: 100vh;
 background: #fff;
 }
+.green{
+color: green;
+}
+
+.red{
+  color: red;
+}
 /* }
 .radio{
   font-size: 24px;

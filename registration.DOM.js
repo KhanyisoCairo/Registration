@@ -47,15 +47,19 @@ function showBtn() {
     }
 }
 function addBtnClicked() {
-   
+
     if (getRegistrationElem.value === "") {
 
         clearMsg();
         errorElem.innerHTML = "Please enter a valid registration"
+        errorElem.classList.remove("green");
+        errorElem.classList.add("red");
     } else if (factoryInstance.checkExist(getRegistrationElem.value)) {
 
         clearMsg();
         errorElem.innerHTML = "Already Been Added"
+        errorElem.classList.remove("green");
+        errorElem.classList.add("red");
 
     } else {
         clearMsg();
@@ -64,7 +68,14 @@ function addBtnClicked() {
         if (!result) {
             createRegPlates(factoryInstance.getRegistration());
             localStorage.setItem('registration', JSON.stringify(factoryInstance.getRegistration()))
-            errorElem.innerHTML = "Successfuly Added"
+
+            if (errorElem != result) {
+
+                errorElem.innerHTML = "Successfuly Added"
+                errorElem.classList.remove("red");
+                errorElem.classList.add("green");
+
+            }
         } else {
             errorElem.innerHTML = result;
         }
@@ -75,6 +86,6 @@ showBtnElem.addEventListener("click", showBtn);
 
 window.addEventListener('DOMContentLoaded', (event) => {
 
-      factoryInstance.filter();
+    factoryInstance.filter();
 
 });
