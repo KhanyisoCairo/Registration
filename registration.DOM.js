@@ -86,6 +86,7 @@ function addBtnClicked() {
 }
 function reset() {
 
+    window.location.reload()
     localStorage.clear();
     getRegistrationElem.innerHTML = "";
     displayRegElem.innerHTML = "";
