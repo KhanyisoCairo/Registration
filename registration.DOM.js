@@ -90,7 +90,7 @@ function reset() {
     localStorage.clear();
     getRegistrationElem.innerHTML = "";
     displayRegElem.innerHTML = "";
-    reg.reload();
+    // reg.reload();
 
 
 }
