@@ -9,6 +9,8 @@ var resetBtnElem = document.querySelector(".ResetBtn");
 var data;
 if (localStorage.getItem("registration")) {
     data = JSON.parse(localStorage.getItem("registration"))
+}else {
+    data = []
 }
 
 var factoryInstance = RegistrationFactory(data);
@@ -84,7 +86,7 @@ function addBtnClicked() {
 }
 function reset() {
 
-    factoryInstance.clear();
+   // factoryInstance.clear();
     localStorage.clear();
     getRegistrationElem.innerHTML = "";
     displayRegElem.innerHTML = "";
