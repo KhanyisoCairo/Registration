@@ -7,7 +7,7 @@ var errorElem = document.querySelector(".msg");
 var resetBtnElem = document.querySelector(".ResetBtn");
 
 var data;
-if (localStorage.getItem("registration") !== undefined) {
+if (localStorage.getItem("registration")) {
     data = JSON.parse(localStorage.getItem("registration"))
 }
 
