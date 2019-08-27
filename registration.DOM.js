@@ -86,12 +86,9 @@ function addBtnClicked() {
 }
 function reset() {
 
-   // factoryInstance.clear();
     localStorage.clear();
     getRegistrationElem.innerHTML = "";
     displayRegElem.innerHTML = "";
-    // reg.reload();
-
 
 }
 
