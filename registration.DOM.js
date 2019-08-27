@@ -4,6 +4,7 @@ var showBtnElem = document.querySelector(".showBtn");
 var filterElem = document.querySelector(".radioBtn");
 var displayRegElem = document.querySelector(".regNumbers");
 var errorElem = document.querySelector(".msg");
+var resetBtnElem = document.querySelector(".ResetBtn");
 
 var data;
 if (localStorage.getItem("registration") !== undefined) {
@@ -81,8 +82,21 @@ function addBtnClicked() {
         }
     }
 }
+function reset() {
+
+    factoryInstance.clear();
+    localStorage.clear();
+    getRegistrationElem.innerHTML = "";
+    displayRegElem.innerHTML = "";
+    reg.reload();
+
+
+}
+
+
 addBtnElem.addEventListener("click", addBtnClicked)
 showBtnElem.addEventListener("click", showBtn);
+resetBtnElem.addEventListener("click", reset);
 
 window.addEventListener('DOMContentLoaded', (event) => {
 

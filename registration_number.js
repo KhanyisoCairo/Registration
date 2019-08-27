@@ -1,8 +1,13 @@
 function RegistrationFactory(arr) {
-    var regNumbers = arr || [];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+    var regNumbers = arr || [];
     var newReg;
     var regex = /[A-Z]{2}\s[0-9]/i;
     var errorMessage = "";
+
+    function clear() {
+
+        regNumbers = [];
+    }
 
     function showError() {
         return "Please enter valid registration"
@@ -12,7 +17,7 @@ function RegistrationFactory(arr) {
         return regNumbers.includes(testNum.toUpperCase());
     }
 
- 
+
     function initialize() {
         var initial = [];
         initial = ["CA 321541", "CF 321541"];
@@ -45,7 +50,7 @@ function RegistrationFactory(arr) {
         }
         else {
             return ("Not A Valid Registration");
-        }  
+        }
     }
 
     function getRegistration() {
@@ -79,7 +84,8 @@ function RegistrationFactory(arr) {
         showError,
         checkExist: checkDuplicates,
         validate,
-        initialize
+        initialize,
+        clear
 
     }
 }
