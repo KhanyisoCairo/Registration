@@ -1,7 +1,7 @@
 function RegistrationFactory(arr) {
     var regNumbers = arr || [];
     var newReg;
-    var regex = /[A-Z]{2}\s[0-9]/i;
+    var regex = /[A-Z]{2}\s[0-9]{3}\s[0-9]{3}/i;
     var errorMessage = "";
 
     function clear() {

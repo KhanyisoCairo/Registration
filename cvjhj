@@ -1,0 +1,9 @@
+function GetRegList(getList) {
+var regList = ["CA ", "CY ", "CF"]
+var getNum = getList.split(" ");
+if (getNum.length > 2) {
+return false;
+}
+var regii = regList[0].trim();
+return regList.includes(regii);
+}
