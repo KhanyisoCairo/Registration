@@ -7,22 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="simple-grid.css">
     <title>registration_number</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script type="text/x-template" class="userTemplate">
+
+<ul>
+        {{#each regNumbers}}
+                            
+        <li>>{{this}}</li>
+    
+        {{/each}}
+    </ul>
+      </script>
+
 </head>
 
 <body>
-   
+
     <div class="row">
-        <div class="col-12 ">
+        <div class="col-6 ">
 
             <div class="registration_number">
 
                 <h2>registration number:</h2>
 
-             <br>
-             <div class="msg" >
+                <br>
+                <div class="msg">
 
 
-            </div>
+                </div>
                 <input type="text" value="" placeholder="e.g CA 123 567" class="textName" name="firstname" maxlength=10>
                 <input class="submBtn" type="submit" value="ADD" id="addBtn"><br><br>
                 <br>
@@ -57,12 +70,78 @@
                 <input class="showBtn" type="submit" value="Show" id="showBtn"><br><br>
                 <input class="ResetBtn" type="submit" value="Reset" id="resetBtn"><br><br>
                 <div class="row">
-                    <div col-12>
-                        <ul class="regNumbers" style="border-radius: 3px solid black; display:inline-block" >
+                    <div class="col-6">
+                        <ul class="regNumbers" style="border-radius: 3px solid black; display:inline-block">
 
                         </ul>
                     </div>
-                 
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    </div>
+
+<!-- templates -->
+    
+    <div class="row">
+        <div class="col-6 ">
+
+            <div class="registration_number">
+
+                <h2>registration number:</h2>
+
+                <br>
+                <div class="msg1">
+
+
+                </div>
+                <input type="text" value="" placeholder="e.g CA 123 567" class="textName1" name="firstname" maxlength=10>
+                <input class="submBtn1" type="submit" value="ADD" id="addBtn"><br><br>
+                <br>
+                <div>
+                    <label class="radio">
+
+                        <input type="radio" class="radioBtn1" name="RegNumber1" value="CY"> Bellville
+                        <span></span>
+                    </label>
+
+                    <label class="radio">
+
+                        <input type="radio" class="radioBtn1" name="RegNumber1" value="CA"> Cape Town
+                        <span></span>
+                    </label>
+
+                    <label class="radio">
+
+                        <input type="radio" class="radioBtn1" name="RegNumber1" value="CF"> Paarl
+                        <span></span>
+                    </label>
+
+                    <label class="radio">
+
+                        <input type="radio" class="radioBtn1" name="RegNumber1" value=""> Show All
+                        <span></span>
+                    </label>
+
+
+                </div>
+                <br><br>
+                <input class="showBtn1" type="submit" value="Show" id="showBtn"><br><br>
+                <input class="ResetBtn1" type="submit" value="Reset" id="resetBtn"><br><br>
+                <div class="row">
+                    <div  class="col-6">
+                        <ul class="regNumbers1" style="border-radius: 3px solid black; display:inline-block">
+                           <li>Helo</li>
+                            
+                        </ul>
+                    </div>
+
                 </div>
             </div>
 
@@ -75,6 +154,8 @@
     </div>
 </body>
 <script src="registration_number.js" charset="utf-8"></script>
+<script src="../Registration/regNumbers-DOM.js" charset="utf-8"></script>
 <script src="registration.DOM.js" charset="utf-8"></script>
+<!-- <script src="../Registration/regNumbers-DOM.js" charset="utf-8"></script> -->
 
 </html>

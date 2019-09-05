@@ -87,7 +87,7 @@ function addBtnClicked() {
 function reset() {
 
     window.location.reload()
-    localStorage.clear();
+    localStorage.removeItem('registration');
     getRegistrationElem.innerHTML = "";
     displayRegElem.innerHTML = "";
 
