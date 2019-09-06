@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script type="text/x-template" class="userTemplate">
 
-<ul>
+    <ul>
         {{#each regNumbers}}
                             
         <li>>{{this}}</li>
@@ -29,7 +29,7 @@
 
             <div class="registration_number">
 
-                <h2>registration number:</h2>
+                <h2>Registration numbers:</h2>
 
                 <br>
                 <div class="msg">
@@ -70,8 +70,8 @@
                 <input class="showBtn" type="submit" value="Show" id="showBtn"><br><br>
                 <input class="ResetBtn" type="submit" value="Reset" id="resetBtn"><br><br>
                 <div class="row">
-                    <div class="col-6">
-                        <ul class="regNumbers" style="border-radius: 3px solid black; display:inline-block">
+                    <div class="col-6 regNumbers">
+                        <ul>
 
                         </ul>
                     </div>
@@ -80,28 +80,20 @@
             </div>
 
         </div>
-    </div>
-
-
-
-
-    </div>
-
-<!-- templates -->
-    
-    <div class="row">
+        <!-- templates -->
         <div class="col-6 ">
 
             <div class="registration_number">
 
-                <h2>registration number:</h2>
+                <h2>Registration numbers:</h2>
 
                 <br>
                 <div class="msg1">
 
 
                 </div>
-                <input type="text" value="" placeholder="e.g CA 123 567" class="textName1" name="firstname" maxlength=10>
+                <input type="text" value="" placeholder="e.g CA 123 567" class="textName1" name="firstname"
+                    maxlength=10>
                 <input class="submBtn1" type="submit" value="ADD" id="addBtn"><br><br>
                 <br>
                 <div>
@@ -135,17 +127,17 @@
                 <input class="showBtn1" type="submit" value="Show" id="showBtn"><br><br>
                 <input class="ResetBtn1" type="submit" value="Reset" id="resetBtn"><br><br>
                 <div class="row">
-                    <div  class="col-6">
-                        <ul class="regNumbers1" style="border-radius: 3px solid black; display:inline-block">
-                           <li>Helo</li>
-                            
+                    <div class="col-6 regNumbers1" >
+                        <ul style="border-radius: 3px solid black; display:inline-block"> 
+                           
+
                         </ul>
                     </div>
 
                 </div>
             </div>
-
         </div>
+    </div>
     </div>
 
 
@@ -154,7 +146,7 @@
     </div>
 </body>
 <script src="registration_number.js" charset="utf-8"></script>
-<script src="../Registration/regNumbers-DOM.js" charset="utf-8"></script>
+<script src="regNumbers-DOM.js" charset="utf-8"></script>
 <script src="registration.DOM.js" charset="utf-8"></script>
 <!-- <script src="../Registration/regNumbers-DOM.js" charset="utf-8"></script> -->
 

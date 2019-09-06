@@ -21,7 +21,7 @@ if (localStorage.getItem("registrationTwo")) {
 var Instance = RegistrationFactory(data);
 
 window.onload = function () {
-    createRegPlates(Instance.getRegistration());
+    createRegPlatesTemp(Instance.getRegistration());
 };
 
 function clearMsg() {
@@ -30,24 +30,23 @@ function clearMsg() {
     }, 2000);
 }
 
-// function createRegNumbers(regNum) {
-//     var data = userTemplate({
-//         regNumbers:regNum,
+function createRegNumbers(regNum) {
+    var data = userTemplate({
+        regNumbers:regNum,
        
-//     });
+    });
    
-//     userDataElem.innerHTML = data
-//     // var li = document.createElement('li');
-//     // li.innerHTML = regNum;
-//     // var regNumber = document.querySelector(".regNumbers1");
-//     // regNumber.appendChild(li)
-// }
+    userDataElem.innerHTML = data
+    // var li = document.createElement('li');
+    // li.innerHTML = regNum;
+    // var regNumber = document.querySelector(".regNumbers1");
+    // regNumber.appendChild(li)
+}
 
-function createRegPlates(foundRegArray) {
-    console.log(foundRegArray);
+function createRegPlatesTemp(foundRegArray) {
     
     userDataElem.innerHTML = "helooooo";
-      console.log(foundRegArray);
+     
       
     var data = userTemplate({
         regNumbers:foundRegArray,
@@ -58,7 +57,7 @@ function createRegPlates(foundRegArray) {
     // foundRegArray.forEach(currentRegNumber => {
     //     createRegNumbers(currentRegNumber);
     // });
-}
+};
 
 
 
@@ -68,7 +67,7 @@ function showBtn() {
 
     if (regNum !== "") {
         var regis = regNum.value;
-        createRegPlates(Instance.filter(regis))
+        createRegPlatesTemp(Instance.filter(regis))
     }
 }
 function addBtnClicked() {
@@ -89,9 +88,8 @@ function addBtnClicked() {
     } else {
         clearMsg();
         var result = Instance.registration(getRegElem.value)
-
         if (!result) {
-            createRegPlates(Instance.getRegistration());
+            createRegPlatesTemp(Instance.getRegistration());
             localStorage.setItem('registrationTwo', JSON.stringify(Instance.getRegistration()))
 
             if (showErrorElem != result) {
